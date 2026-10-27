@@ -41,9 +41,9 @@ export default function AppointmentsPage() {
         setDoctors(dRes.data.data.content);
 
         // Fetch today appointments for "all" view too
-        const aRes = await appointmentAPI.getToday();
-        setAppointments(aRes.data.data);
-        setTotal(aRes.data.data.length);
+        const res = await appointmentAPI.getMy({ page: 0, size: 100, sort: 'appointmentTime,desc' });
+        setAppointments(res.data.data.content);
+        setTotal(res.data.data.totalElements);
       }
     } catch { setError('Failed to load data'); }
     finally { setLoading(false); }
