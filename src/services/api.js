@@ -137,6 +137,7 @@ export const appointmentAPI = {
   getByPatient: (patientId, params) => api.get(`/appointments/patient/${patientId}`, { params }),
   getByDoctor: (doctorId, params) => api.get(`/appointments/doctor/${doctorId}`, { params }),
   getToday: () => api.get('/appointments/today'),
+  getMy: (params) => api.get('/appointments/my', { params }),
 };
 
 // ─────────────────────────────────────────────
